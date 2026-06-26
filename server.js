@@ -4,9 +4,9 @@ import { OpenAI } from "openai";
 const app = express();
 app.use(express.json());
 
-// CORS manuell freigeben – wichtig für GitHub Pages
+// CORS für GitHub Pages freigeben
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://r-l-a.github.io"); // deine GitHub Pages Domain
+  res.header("Access-Control-Allow-Origin", "https://firestream999.github.io"); // GitHub Pages Domain
   res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   if (req.method === "OPTIONS") {
@@ -30,7 +30,7 @@ app.post("/chat", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "Du bist eine hilfreiche KI, spezialisiert auf Robotik in der Pflege und Medizin. Antworte ausschließlich zu diesem Thema und weiche nicht davon ab."
+          content: "Du bist eine hilfreiche KI, die Fragen zu allen Themen beantworten kann. Sei präzise, freundlich und hilfsbereit."
         },
         { role: "user", content: userMessage }
       ],
